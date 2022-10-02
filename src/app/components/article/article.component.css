@@ -1,0 +1,40 @@
+.tarjeta-item{
+    height: 100%;
+    padding-top: 1em;
+    padding-left: 1em;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.miniatura{
+    width: 4em;
+    height: 4em;
+}
+
+.container-imagen{
+    width: 20%;
+   /* border: solid blue 2px;*/
+    float: left;
+}
+
+.container-info{
+    width: 80%;
+   /* border: solid;
+    border-color: red;
+    border-width: 2px;*/
+    float: left;
+    padding-left: 1em;
+}
+
+.container-individual{
+    width: 50%;
+    float: left;
+    padding-top: 1em;
+   /* border: solid green 2px;*/
+}
+
+p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: Ellipsis; 
+  }
