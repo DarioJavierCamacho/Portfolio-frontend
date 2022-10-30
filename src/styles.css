@@ -1,5 +1,6 @@
 body{
-    position: relative;
+    /*position: relative;*/
+    min-width:600px;
     background-color:#212529;
 }
 

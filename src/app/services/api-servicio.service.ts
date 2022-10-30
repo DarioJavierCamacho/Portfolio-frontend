@@ -4,9 +4,6 @@ import { Observable, of } from 'rxjs';
 import { info } from 'src/interface';
 
 
-const httpOptions = {
-  headers: new HttpHeaders
-}
 
 
 @Injectable({
@@ -16,7 +13,7 @@ const httpOptions = {
 
 export class ApiServicioService {
 
-  private apiUrl= 'http://localhost:8080/test';
+  private apiUrl= 'http://localhost:8080/tarjeta';
   
   constructor(private http: HttpClient){
    }

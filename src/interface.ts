@@ -3,5 +3,8 @@ export interface info{
     titulo      : string;
     subtitulo   : string;
     imgsrc      : string;
-    tipo        : string;
+    tipo        : number;
+    percent     : number;
+    fInicio     : String;
+    fFin        : String;
 }
