@@ -1,51 +1,82 @@
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="tarjeta-item">
-            <h2>Experiencia</h2><br>
-              <div *ngFor="let vari of variable">
-                <div class="container-individual">
-                  <div class="container-imagen">
-                    <img [src]="vari.imgsrc" alt="imagen_miniatura" class="miniatura">
-                  </div>
-                  <div class="container-info">
-                    <p>{{vari.titulo}}</p>
-                    <p>{{vari.subtitulo}}</p>
-                    <p>{{vari.tipo}}</p>
-                  </div>
-                </div>
-              </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="tarjeta-item">
+        <h2>Experiencia</h2><br>
+        <div *ngFor="let vari of experiencia">
+          <div class="container-individual">
+            <div class="container-imagen">
+              <img [src]="vari.imgsrc" alt="imagen_miniatura" class="miniatura">
+            </div>
+            <div class="container-info">
+              <p>{{vari.titulo}}</p>
+              <p>{{vari.subtitulo}}</p>
+              <p>{{vari.tipo}}</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="carousel-item">
-        <div class="tarjeta-item">
-            <h2>Educacion</h2>
-            <p>Ninguno</p>
+    </div>
+    <div class="carousel-item">
+      <div class="tarjeta-item">
+        <h2>Educacion</h2>
+        <div *ngFor="let vari of educacion">
+          <div class="container-individual">
+            <div class="container-imagen">
+              <img [src]="vari.imgsrc" alt="imagen_miniatura" class="miniatura">
+            </div>
+            <div class="container-info">
+              <p>{{vari.titulo}}</p>
+              <p>{{vari.subtitulo}}</p>
+              <p>{{vari.tipo}}</p>
+            </div>
+          </div>
         </div>
       </div>
-     <!-- <div class="carousel-item">
-        <div class="tarjeta-item">
-            <h2>Hard y soft Skills</h2>
-            <p>Ninguno</p>
+    </div>
+    <div class="carousel-item">
+      <div class="tarjeta-item">
+        <h2>Hard y soft Skills</h2>
+        <div *ngFor="let vari of educacion">
+          <div class="container-individual">
+            <div class="container-imagen">
+              <img [src]="vari.imgsrc" alt="imagen_miniatura" class="miniatura">
+            </div>
+            <div class="container-info">
+              <p>{{vari.titulo}}</p>
+              <p>{{vari.subtitulo}}</p>
+              <p>{{vari.tipo}}</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="carousel-item">
-        <div class="tarjeta-item">
-            <h2>Proyectos</h2>
-            <p>Ninguno</p>
+    </div>
+    <div class="carousel-item">
+      <div class="tarjeta-item">
+        <h2>Proyectos</h2>
+        <div *ngFor="let vari of educacion">
+          <div class="container-individual">
+            <div class="container-imagen">
+              <img [src]="vari.imgsrc" alt="imagen_miniatura" class="miniatura">
+            </div>
+            <div class="container-info">
+              <p>{{vari.titulo}}</p>
+              <p>{{vari.subtitulo}}</p>
+              <p>{{vari.tipo}}</p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>-->
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev" style="height: 25em;">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next" style="height: 25em;">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+    </div>
   </div>
-
-
-
-
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev"
+    style="height: 25em;">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next"
+    style="height: 25em;">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

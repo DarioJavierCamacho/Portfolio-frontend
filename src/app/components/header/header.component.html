@@ -1,12 +1,10 @@
-
-    <a href="https://www.argentina.gob.ar/produccion/transformacion-digital-y-economia-del-conocimiento/argentina-programa" target="_blank"><img src="/assets/img/argproglogo.png" alt="img_logo" class="logo"></a>
-         <div class="login_top">
-         <form>
-             <input type="email" name="email_top" id="email_top">   Email
-             <input type="password" name="password_top" id="password_top">   Password
-             <input type="submit" name="top_submit" id="top_submit">
-         </form>
-         </div>  
+   <a href="https://www.argentina.gob.ar/produccion/transformacion-digital-y-economia-del-conocimiento/argentina-programa" target="_blank"><img src="/assets/img/argproglogo.png" alt="img_logo" class="logo"></a>
+         <div class="login_top" *ngIf="!isLogged">        
+             <input class="btn btn-primary" name="top_submit" id="top_submit" value="Ingresar" (click)="onClick()">
+         </div>
+         <div class="login_top" *ngIf="isLogged">        
+            <input class="btn btn-danger" name="top_logout" id="top_logout" value="Cerrar Sesión" (click)="onLogout()">
+        </div>    
          <div class="social_top">
              <a href="https://www.facebook.com/camachodariojavier" target="_blank">
                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
@@ -34,10 +32,12 @@
                  </svg>
              </a>
          </div>
-<p>
+<div>
     <img src="/assets/img/banner.png" alt="img_banner" class="banner"> 
-    <img src="/assets/img/rex.png" alt="img_perfil" class="profile">
-</p>
+    <div class="cont-profile">
+        <img src="/assets/img/rex.png" alt="img_perfil" class="profile"><fa-icon class="icono-foto" [icon]="faCamera" (click)="subirFoto()"></fa-icon>
+    </div>
+</div>
 <div class="acercaDe">
         <h2>Acerca De</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores repellat, voluptas ullam unde explicabo dolor ab tempore quo architecto voluptates magnam corporis, odit suscipit nisi eligendi in porro impedit tenetur.</p>
