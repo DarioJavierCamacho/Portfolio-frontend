@@ -29,9 +29,10 @@ app-article{
     display: block;
     box-sizing: border-box;
     /*border: solid yellow 2px ;*/
-    background-color:#d3d3d3;
+    background-color:#bebbbb;
+    color: rgb(0, 0, 0);
     width: 100%;
-    height: 30em;
+    height: 60em;
    /* border-radius:1em;*/
     padding:1em;
 }

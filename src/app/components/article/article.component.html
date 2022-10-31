@@ -4,14 +4,20 @@
       <div class="tarjeta-item">
         <h2>Experiencia</h2><br>
         <div *ngFor="let vari of experiencia">
-          <div class="container-individual">
-            <div class="container-imagen">
-              <img [src]="vari.imgsrc" alt="imagen_miniatura" class="miniatura">
+          <div class="container-tarjeta">
+            <div class="container-btn">
+              <fa-icon [icon]="faXmark" class="eliminar" (click)="onEliminar(vari.id)"></fa-icon>
+              <fa-icon [icon]="faPen" class="editar" (click)="onEditar(vari.id)"></fa-icon>
             </div>
-            <div class="container-info">
-              <p>{{vari.titulo}}</p>
-              <p>{{vari.subtitulo}}</p>
-              <p>{{vari.tipo}}</p>
+            <div class="container-individual">
+              <div class="container-imagen">
+                <img [src]="vari.imgsrc" alt="imagen_miniatura" class="miniatura">
+              </div>
+              <div class="container-info">
+                <p>{{vari.titulo}}</p>
+                <p>{{vari.subtitulo}}</p>
+                <p>{{vari.tipo}}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -21,14 +27,20 @@
       <div class="tarjeta-item">
         <h2>Educacion</h2>
         <div *ngFor="let vari of educacion">
-          <div class="container-individual">
-            <div class="container-imagen">
-              <img [src]="vari.imgsrc" alt="imagen_miniatura" class="miniatura">
+          <div class="container-tarjeta">
+            <div class="container-btn">
+              <fa-icon [icon]="faXmark" class="eliminar" (click)="onEliminar(vari.id)"></fa-icon>
+              <fa-icon [icon]="faPen" class="editar" (click)="onEditar(vari.id)"></fa-icon>
             </div>
-            <div class="container-info">
-              <p>{{vari.titulo}}</p>
-              <p>{{vari.subtitulo}}</p>
-              <p>{{vari.tipo}}</p>
+            <div class="container-individual">
+              <div class="container-imagen">
+                <img [src]="vari.imgsrc" alt="imagen_miniatura" class="miniatura">
+              </div>
+              <div class="container-info">
+                <p>{{vari.titulo}}</p>
+                <p>{{vari.subtitulo}}</p>
+                <p>{{vari.tipo}}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -37,15 +49,21 @@
     <div class="carousel-item">
       <div class="tarjeta-item">
         <h2>Hard y soft Skills</h2>
-        <div *ngFor="let vari of educacion">
-          <div class="container-individual">
-            <div class="container-imagen">
-              <img [src]="vari.imgsrc" alt="imagen_miniatura" class="miniatura">
+        <div *ngFor="let vari of hys">
+          <div class="container-tarjeta">
+            <div class="container-btn-hys">
+              <fa-icon [icon]="faXmark" class="eliminar" (click)="onEliminar(vari.id)"></fa-icon>
+              <fa-icon [icon]="faPen" class="editar" (click)="onEditar(vari.id)"></fa-icon>
             </div>
-            <div class="container-info">
-              <p>{{vari.titulo}}</p>
-              <p>{{vari.subtitulo}}</p>
-              <p>{{vari.tipo}}</p>
+            <div class="container-individual-hys">
+              <div class="container-info">
+                <circle-progress [percent]="vari.percent" [subtitle]="vari.subtitulo" [radius]="75"
+                  [outerStrokeWidth]="10" [innerStrokeWidth]="3" [outerStrokeColor]="'#c6df0c'"
+                  [innerStrokeColor]="'#32CD32'" [backgroundColor]="'#000000'" [animation]="true"
+                  [backgroundStroke]="'transparent'" [titleColor]="'#36f202'" [titleFontSize]="'25'"
+                  [unitsFontSize]="'25'" [startFromZero]=true [unitsColor]="'#11ff00'" [subtitleColor]="'#06f92f'"
+                  [backgroundPadding]=10 [animationDuration]="300"></circle-progress>
+              </div>
             </div>
           </div>
         </div>
@@ -55,14 +73,20 @@
       <div class="tarjeta-item">
         <h2>Proyectos</h2>
         <div *ngFor="let vari of educacion">
-          <div class="container-individual">
-            <div class="container-imagen">
-              <img [src]="vari.imgsrc" alt="imagen_miniatura" class="miniatura">
+          <div class="container-tarjeta">
+            <div class="container-btn">
+              <fa-icon [icon]="faXmark" class="eliminar" (click)="onEliminar(vari.id)"></fa-icon>
+              <fa-icon [icon]="faPen" class="editar" (click)="onEditar(vari.id)"></fa-icon>
             </div>
-            <div class="container-info">
-              <p>{{vari.titulo}}</p>
-              <p>{{vari.subtitulo}}</p>
-              <p>{{vari.tipo}}</p>
+            <div class="container-individual">
+              <div class="container-imagen">
+                <img [src]="vari.imgsrc" alt="imagen_miniatura" class="miniatura">
+              </div>
+              <div class="container-info">
+                <p>{{vari.titulo}}</p>
+                <p>{{vari.subtitulo}}</p>
+                <p>{{vari.tipo}}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -70,12 +94,12 @@
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev"
-    style="height: 25em;">
+    style="height: 25em;width: 10%;padding-left: 0;">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
   <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next"
-    style="height: 25em;">
+    style="height: 25em;width: 10%;">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>

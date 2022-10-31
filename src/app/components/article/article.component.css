@@ -1,40 +1,80 @@
-.tarjeta-item{
+.tarjeta-item {
     height: 100%;
-    padding-top: 1em;
-    padding-left: 1em;
+    padding-top: 2em;
+    padding-left: 4em;
     text-align: justify;
     text-justify: inter-word;
 }
 
-.miniatura{
+.miniatura {
     width: 4em;
     height: 4em;
 }
 
-.container-imagen{
+.container-imagen {
     width: 20%;
-   /* border: solid blue 2px;*/
+    /* border: solid blue 2px;*/
     float: left;
+    display: inline;
 }
 
-.container-info{
-    width: 100%;
-   /* border: solid;
+.container-info {
+    width: 80%;
+    /*border: solid;
     border-color: red;
     border-width: 2px;*/
     float: left;
+    display: inline;
     padding-left: 1em;
 }
 
-.container-individual{
-    width: 50%;
+.container-individual {
+    width: 100%;
     float: left;
-    padding-top: 1em;
-   /* border: solid green 2px;*/
+    padding-top: 1em;  
+    /*border: solid green 2px;*//*para pruebas*/
 }
 
-p{
+p {
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: Ellipsis; 
-  }
+    text-overflow: Ellipsis;
+}
+
+.editar {
+    float: right;
+    cursor: pointer;
+    color: rgb(29, 184, 29);
+    margin-right: 1em !important;
+}
+
+.eliminar {
+    cursor: pointer;
+    float: right;
+    color: red;
+}
+
+.container-btn {
+    width: 75%;
+    z-index: 1000;
+    display: block;
+    justify-content: right;
+}
+.container-btn-hys {
+    width: 75%;
+    display: block;
+    justify-content: right;
+}
+
+.container-individual-hys {
+    width: 100%;
+    float: left;
+    display: inline;
+    padding-top: 1em;
+  /*  border: solid green 2px;*//*para pruebas*/
+}
+
+.container-tarjeta{
+    width: 50%;
+    float: left;
+}

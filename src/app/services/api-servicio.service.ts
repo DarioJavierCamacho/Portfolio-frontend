@@ -18,7 +18,15 @@ export class ApiServicioService {
   constructor(private http: HttpClient){
    }
 
-   getMessage() : Observable<info[]>{
+   public getMessage() : Observable<info[]>{
     return this.http.get<info[]>(this.apiUrl)
    }
+
+   public delete(id: number): Observable<any> {
+    return this.http.delete<any>(this.apiUrl +"?id="+id);
+  }
+
+  public edit(id: number, Info: info): Observable<any> {
+    return this.http.put<any>(this.apiUrl , Info);
+  }
 }

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiServicioService } from 'src/app/services/api-servicio.service';
 import { info } from 'src/interface';
-import { TokenService } from '../../services/token.service'
+import { TokenService } from '../../services/token.service';
+import { faPen } from '@fortawesome/free-solid-svg-icons';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-article',
@@ -9,6 +11,9 @@ import { TokenService } from '../../services/token.service'
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit {
+
+  faPen = faPen;
+  faXmark = faXmark;
 
   public experiencia: info[] = []
   public educacion: info[] = []
@@ -43,5 +48,18 @@ export class ArticleComponent implements OnInit {
       this.flag = true
     }
     )
+  }
+
+  onEliminar(id: number){
+    console.log("onEliminar"+"?id="+id);
+    this.serv.delete(id).subscribe(data =>{
+      console.log(data);
+    },
+    err =>{
+    console.log(err.error);
+  });
+  }
+  onEditar(id: number){
+    console.log("onEditar"+id);
   }
 }
