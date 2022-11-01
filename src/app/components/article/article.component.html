@@ -1,106 +1,235 @@
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="tarjeta-item">
-        <h2>Experiencia</h2><br>
-        <div *ngFor="let vari of experiencia">
-          <div class="container-tarjeta">
-            <div class="container-btn">
-              <fa-icon [icon]="faXmark" class="eliminar" (click)="onEliminar(vari.id)"></fa-icon>
-              <fa-icon [icon]="faPen" class="editar" (click)="onEditar(vari.id)"></fa-icon>
-            </div>
-            <div class="container-individual">
-              <div class="container-imagen">
-                <img [src]="vari.imgsrc" alt="imagen_miniatura" class="miniatura">
+<div *ngIf="!isEditing && !isAdding">
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="tarjeta-item">
+          <h2>Experiencia<fa-icon [icon]="faPlus" style="cursor: pointer;color: rgb(59, 42, 216); margin-left: 2em!important;" (click)="onAgregar(1)"></fa-icon></h2><br>
+          <div *ngFor="let vari of experiencia">
+            <div class="container-tarjeta">
+              <div *ngIf="isAdmin">
+                <div class="container-btn">
+                  <fa-icon [icon]="faXmark" class="eliminar" (click)="onEliminar(vari.id)"></fa-icon>
+                  <fa-icon [icon]="faPen" class="editar" (click)="onEditar(vari.id)"></fa-icon>
+                </div>
               </div>
-              <div class="container-info">
-                <p>{{vari.titulo}}</p>
-                <p>{{vari.subtitulo}}</p>
-                <p>{{vari.tipo}}</p>
+              <div class="container-individual">
+                <div class="container-imagen">
+                  <img [src]="vari.imgsrc" alt="imagen_miniatura" class="miniatura">
+                </div>
+                <div class="container-info">
+                  <p>Puesto: {{vari.titulo}}</p>
+                  <p>Establecimiento: {{vari.subtitulo}}</p>
+                  <p>Fecha de inicio: {{vari.fInicio}}</p>
+                  <p>Fecha de finalizacion: {{vari.fFin}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="tarjeta-item">
+          <h2>Educacion<fa-icon [icon]="faPlus" style="cursor: pointer;color: rgb(59, 42, 216); margin-left: 2em!important;" (click)="onAgregar(2)"></fa-icon></h2>
+          <div *ngFor="let vari of educacion">
+            <div class="container-tarjeta">
+              <div *ngIf="isAdmin">
+                <div class="container-btn">
+                  <fa-icon [icon]="faXmark" class="eliminar" (click)="onEliminar(vari.id)"></fa-icon>
+                  <fa-icon [icon]="faPen" class="editar" (click)="onEditar(vari.id)"></fa-icon>
+                </div>
+              </div>
+              <div class="container-individual">
+                <div class="container-imagen">
+                  <img [src]="vari.imgsrc" alt="imagen_miniatura" class="miniatura">
+                </div>
+                <div class="container-info">
+                  <p>Titulo: {{vari.titulo}}</p>
+                  <p>Establecimiento: {{vari.subtitulo}}</p>
+                  <p>Fecha de inicio: {{vari.fInicio}}</p>
+                  <p>Fecha de finalizacion: {{vari.fFin}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="tarjeta-item">
+          <h2>Hard y soft Skills<fa-icon [icon]="faPlus"  style="cursor: pointer;color: rgb(59, 42, 216); margin-left: 2em!important;" (click)="onAgregar(3)"></fa-icon></h2>
+          <div *ngFor="let vari of hys">
+            <div class="container-tarjeta">
+              <div *ngIf="isAdmin">
+                <div class="container-btn-hys">
+                  <fa-icon [icon]="faXmark" class="eliminar" (click)="onEliminar(vari.id)"></fa-icon>
+                  <fa-icon [icon]="faPen" class="editar" (click)="onEditar(vari.id)"></fa-icon>
+                </div>
+              </div>
+              <div class="container-individual-hys">
+                <div class="container-info">
+                  <circle-progress [percent]="vari.percent" [subtitle]="vari.titulo" [radius]="75"
+                    [outerStrokeWidth]="10" [innerStrokeWidth]="3" [outerStrokeColor]="'#c6df0c'"
+                    [innerStrokeColor]="'#32CD32'" [backgroundColor]="'#000000'" [animation]="true"
+                    [backgroundStroke]="'transparent'" [titleColor]="'#36f202'" [titleFontSize]="'25'"
+                    [unitsFontSize]="'25'" [startFromZero]=true [unitsColor]="'#11ff00'" [subtitleColor]="'#06f92f'"
+                    [backgroundPadding]=10 [animationDuration]="300"></circle-progress>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="tarjeta-item">
+          <h2>Proyectos <fa-icon [icon]="faPlus"  style="cursor: pointer; color: rgb(42, 28, 168); margin-left: 2em!important;" (click)="onAgregar(4)"></fa-icon>
+          </h2>
+          <div *ngFor="let vari of educacion">
+            <div class="container-tarjeta">
+              <div *ngIf="isAdmin">
+                <div class="container-btn">
+                  <fa-icon [icon]="faXmark" class="eliminar" (click)="onEliminar(vari.id)"></fa-icon>
+                  <fa-icon [icon]="faPen" class="editar" (click)="onEditar(vari.id)"></fa-icon>
+                </div>
+              </div>
+              <div class="container-individual">
+                <div class="container-imagen">
+                  <img [src]="vari.imgsrc" alt="imagen_miniatura" class="miniatura">
+                </div>
+                <div class="container-info">
+                  <p>Titulo: {{vari.titulo}}</p>
+                  <p>Descripcion: {{vari.subtitulo}}</p>
+                  <p>Fecha de inicio: {{vari.fInicio}}</p>
+                  <p>Fecha de finalizacion: {{vari.fFin}}</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="carousel-item">
-      <div class="tarjeta-item">
-        <h2>Educacion</h2>
-        <div *ngFor="let vari of educacion">
-          <div class="container-tarjeta">
-            <div class="container-btn">
-              <fa-icon [icon]="faXmark" class="eliminar" (click)="onEliminar(vari.id)"></fa-icon>
-              <fa-icon [icon]="faPen" class="editar" (click)="onEditar(vari.id)"></fa-icon>
-            </div>
-            <div class="container-individual">
-              <div class="container-imagen">
-                <img [src]="vari.imgsrc" alt="imagen_miniatura" class="miniatura">
-              </div>
-              <div class="container-info">
-                <p>{{vari.titulo}}</p>
-                <p>{{vari.subtitulo}}</p>
-                <p>{{vari.tipo}}</p>
-              </div>
-            </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev"
+      style="height: 25em;width: 10%;padding-left: 0;">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next"
+      style="height: 25em;width: 10%;">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+<div *ngIf="isEditing">
+  <div class="vh-100 d-flex justify-content-center align-items-center">
+    <div class="col-md-4 p-5 shadow-sm border rounded-5 border-secondary">
+      <h2 class="text-center mb-4 text-light">Editar Campo</h2>
+      <form #f="ngForm" (ngSubmit)="onEditOk()" novalidate>
+        <div class="mb-1">
+          <label for="nombre" class="form-label text-light">Titulo</label>
+          <input type="text" class="form-control border border-secondary" name="nombre" id="nombre"
+          [(ngModel)]="editingTitulo" required>
+        </div>
+        <div *ngIf="editingTipo!=3">
+          <div class="mb-1">
+            <label for="nombre" class="form-label text-light">Subtitulo</label>
+            <input type="text" class="form-control border border-secondary" name="nombre" id="nombre"
+            [(ngModel)]="editingSubtitulo" required>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="tarjeta-item">
-        <h2>Hard y soft Skills</h2>
-        <div *ngFor="let vari of hys">
-          <div class="container-tarjeta">
-            <div class="container-btn-hys">
-              <fa-icon [icon]="faXmark" class="eliminar" (click)="onEliminar(vari.id)"></fa-icon>
-              <fa-icon [icon]="faPen" class="editar" (click)="onEditar(vari.id)"></fa-icon>
-            </div>
-            <div class="container-individual-hys">
-              <div class="container-info">
-                <circle-progress [percent]="vari.percent" [subtitle]="vari.subtitulo" [radius]="75"
-                  [outerStrokeWidth]="10" [innerStrokeWidth]="3" [outerStrokeColor]="'#c6df0c'"
-                  [innerStrokeColor]="'#32CD32'" [backgroundColor]="'#000000'" [animation]="true"
-                  [backgroundStroke]="'transparent'" [titleColor]="'#36f202'" [titleFontSize]="'25'"
-                  [unitsFontSize]="'25'" [startFromZero]=true [unitsColor]="'#11ff00'" [subtitleColor]="'#06f92f'"
-                  [backgroundPadding]=10 [animationDuration]="300"></circle-progress>
-              </div>
-            </div>
+        <!--<div *ngIf="editingTipo!=3">
+          <div class="mb-1">
+            <label for="nombre" class="form-label text-light">Imagen</label>
+            <input type="text" class="form-control border border-secondary" name="nombre" id="nombre"
+            [(ngModel)]="editingImagen" required>
+          </div>
+        </div>-->
+        <div *ngIf="editingTipo==3">
+          <div class="mb-1">
+            <label for="nombre" class="form-label text-light">Cantidad</label>
+            <input type="text" class="form-control border border-secondary" name="nombre" id="nombre"
+            [(ngModel)]="editingPercent" required>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <div class="tarjeta-item">
-        <h2>Proyectos</h2>
-        <div *ngFor="let vari of educacion">
-          <div class="container-tarjeta">
-            <div class="container-btn">
-              <fa-icon [icon]="faXmark" class="eliminar" (click)="onEliminar(vari.id)"></fa-icon>
-              <fa-icon [icon]="faPen" class="editar" (click)="onEditar(vari.id)"></fa-icon>
-            </div>
-            <div class="container-individual">
-              <div class="container-imagen">
-                <img [src]="vari.imgsrc" alt="imagen_miniatura" class="miniatura">
-              </div>
-              <div class="container-info">
-                <p>{{vari.titulo}}</p>
-                <p>{{vari.subtitulo}}</p>
-                <p>{{vari.tipo}}</p>
-              </div>
-            </div>
+        <div *ngIf="editingTipo!=3">
+          <div class="mb-1">
+            <label for="nombre" class="form-label text-light">Fecha de inicio</label>
+            <input type="text" class="form-control border border-secondary" name="nombre" id="nombre"
+            [(ngModel)]="editingFInicio" required>
           </div>
         </div>
-      </div>
+        <div *ngIf="editingTipo!=3">
+          <div class="mb-1">
+            <label for="nombre" class="form-label text-light">Fecha de finalizacion</label>
+            <input type="text" class="form-control border border-secondary" name="nombre" id="nombre"
+            [(ngModel)]="editingFFinal" required>
+          </div>
+        </div>
+        <div class="form-group d-grid">
+          <button class="btn btn-success" type="submit"  [disabled]="!f.valid">
+            Guardar Cambios</button>
+        </div>
+        <div class="form-group d-grid">
+          <button class="btn btn-danger" type="button" (click)="onCancelar()" >
+            Cancelar</button>
+        </div>
+      </form>
     </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev"
-    style="height: 25em;width: 10%;padding-left: 0;">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next"
-    style="height: 25em;width: 10%;">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+</div>
+
+<div *ngIf="isAdding">
+  <div class="vh-100 d-flex justify-content-center align-items-center">
+    <div class="col-md-4 p-5 shadow-sm border rounded-5 border-secondary">
+      <h2 class="text-center mb-4 text-light">Editar Campo</h2>
+      <form #f="ngForm" (ngSubmit)="onAddingOk()" novalidate>
+        <div class="mb-1">
+          <label for="nombre" class="form-label text-light">Titulo</label>
+          <input type="text" class="form-control border border-secondary" name="titulo" id="titulo"
+          [(ngModel)]="editingTitulo" required>
+        </div>
+        <div *ngIf="editingTipo!=3">
+          <div class="mb-1">
+            <label for="nombre" class="form-label text-light">Subtitulo</label>
+            <input type="text" class="form-control border border-secondary" name="subtitulo" id="subnombre"
+            [(ngModel)]="editingSubtitulo" required>
+          </div>
+        </div>
+       <!-- <div *ngIf="editingTipo!=3">
+          <div class="mb-1">
+            <label for="nombre" class="form-label text-light">Imagen</label>
+            <input type="text" class="form-control border border-secondary" name="nombre" id="nombre"
+            [(ngModel)]="editingImagen" required>
+          </div>
+        </div>--> <!--No definido metodo + api para manejar imagenes, se usa default-->
+        <div *ngIf="editingTipo==3">
+          <div class="mb-1">
+            <label for="nombre" class="form-label text-light">Cantidad</label>
+            <input type="text" class="form-control border border-secondary" name="cantidad" id="cantidad"
+            [(ngModel)]="editingPercent" required>
+          </div>
+        </div>
+        <div *ngIf="editingTipo!=3">
+          <div class="mb-1">
+            <label for="nombre" class="form-label text-light">Fecha de inicio</label>
+            <input type="text" class="form-control border border-secondary" name="fecha-inicio" id="fechainicio"
+            [(ngModel)]="editingFInicio" required>
+          </div>
+        </div>
+        <div *ngIf="editingTipo!=3">
+          <div class="mb-1">
+            <label for="nombre" class="form-label text-light">Fecha de finalizacion</label>
+            <input type="text" class="form-control border border-secondary" name="fechafinal" id="fechafinal"
+            [(ngModel)]="editingFFinal" required>
+          </div>
+        </div>
+        <div class="form-group d-grid">
+          <button class="btn btn-success" type="submit"  [disabled]="!f.valid">
+            Guardar Cambios</button>
+        </div>
+        <div class="form-group d-grid">
+          <button class="btn btn-danger" type="button" (click)="onCancelar()" >
+            Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

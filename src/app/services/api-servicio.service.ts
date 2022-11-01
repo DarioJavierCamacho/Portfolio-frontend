@@ -27,6 +27,12 @@ export class ApiServicioService {
   }
 
   public edit(id: number, Info: info): Observable<any> {
-    return this.http.put<any>(this.apiUrl , Info);
+    return this.http.put<any>(this.apiUrl, Info);
   }
+  public add(Info: info): Observable<any> {
+    return this.http.post<any>(this.apiUrl , Info);
+  }
+  public getById(id: number) : Observable<info>{
+    return this.http.get<info>(this.apiUrl+"/"+id)
+   }
 }

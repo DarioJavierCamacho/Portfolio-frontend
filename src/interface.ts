@@ -5,6 +5,7 @@ export interface info{
     imgsrc      : string;
     tipo        : number;
     percent     : number;
-    fInicio     : String;
-    fFin        : String;
+    fInicio     : string;
+    fFin        : string;
 }
+
