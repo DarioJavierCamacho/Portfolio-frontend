@@ -3,7 +3,7 @@
     <div class="carousel-inner">
       <div class="carousel-item active">
         <div class="tarjeta-item">
-          <h2>Experiencia<fa-icon [icon]="faPlus" style="cursor: pointer;color: rgb(59, 42, 216); margin-left: 2em!important;" (click)="onAgregar(1)"></fa-icon></h2><br>
+          <h2>Experiencia<div *ngIf="isAdmin"><fa-icon [icon]="faPlus" style="cursor: pointer;color: rgb(59, 42, 216); margin-left: 2em!important;" (click)="onAgregar(1)"></fa-icon></div></h2><br>
           <div *ngFor="let vari of experiencia">
             <div class="container-tarjeta">
               <div *ngIf="isAdmin">
@@ -29,7 +29,7 @@
       </div>
       <div class="carousel-item">
         <div class="tarjeta-item">
-          <h2>Educacion<fa-icon [icon]="faPlus" style="cursor: pointer;color: rgb(59, 42, 216); margin-left: 2em!important;" (click)="onAgregar(2)"></fa-icon></h2>
+          <h2>Educacion<div *ngIf="isAdmin"><fa-icon [icon]="faPlus" style="cursor: pointer;color: rgb(59, 42, 216); margin-left: 2em!important;" (click)="onAgregar(2)"></fa-icon></div></h2>
           <div *ngFor="let vari of educacion">
             <div class="container-tarjeta">
               <div *ngIf="isAdmin">
@@ -55,7 +55,7 @@
       </div>
       <div class="carousel-item">
         <div class="tarjeta-item">
-          <h2>Hard y soft Skills<fa-icon [icon]="faPlus"  style="cursor: pointer;color: rgb(59, 42, 216); margin-left: 2em!important;" (click)="onAgregar(3)"></fa-icon></h2>
+          <h2>Hard y soft Skills<div *ngIf="isAdmin"><fa-icon [icon]="faPlus"  style="cursor: pointer;color: rgb(59, 42, 216); margin-left: 2em!important;" (click)="onAgregar(3)"></fa-icon></div></h2>
           <div *ngFor="let vari of hys">
             <div class="container-tarjeta">
               <div *ngIf="isAdmin">
@@ -80,7 +80,7 @@
       </div>
       <div class="carousel-item">
         <div class="tarjeta-item">
-          <h2>Proyectos <fa-icon [icon]="faPlus"  style="cursor: pointer; color: rgb(42, 28, 168); margin-left: 2em!important;" (click)="onAgregar(4)"></fa-icon>
+          <h2>Proyectos <div *ngIf="isAdmin"><fa-icon [icon]="faPlus"  style="cursor: pointer; color: rgb(42, 28, 168); margin-left: 2em!important;" (click)="onAgregar(4)"></fa-icon></div>
           </h2>
           <div *ngFor="let vari of educacion">
             <div class="container-tarjeta">
