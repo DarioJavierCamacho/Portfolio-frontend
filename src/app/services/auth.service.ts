@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class AuthService {
 
-  authURL = 'http://localhost:8080/auth/';
+  authURL = 'https://portfoliodariocamacho.herokuapp.com/auth/';
 
   constructor(private httpClient: HttpClient) { }
 
