@@ -17,7 +17,7 @@ export class ArticleComponent implements OnInit {
   faXmark = faXmark;
   faPlus = faPlus;
 
-  imageDefault: string= "/assets/img/default.jpg"
+  imageDefault: string = "/assets/img/default.jpg"
   public experiencia: info[] = []
   public educacion: info[] = []
   public hys: info[] = []
@@ -25,17 +25,21 @@ export class ArticleComponent implements OnInit {
   roles: string[] = [];
   isAdmin = false;
 
-  editingTitulo:string = "";
-  editingSubtitulo:string = "";
-  editingImagen:string = "";
-  editingPercent:number = 0;
-  editingFInicio:string = "";
-  editingFFinal:string = "";
-  editingTipo=0;
+  editingTitulo: string = "";
+  editingSubtitulo: string = "";
+  editingImagen: string = "";
+  editingPercent: number = 0;
+  editingFInicio: string = "";
+  editingFFinal: string = "";
+  editingTipo = 0;
 
-  isAdding=false;
-  isEditing=false;
-  public editing : info = {
+  campo: string = "";
+  titulo: string = "";
+  subtitulo: string = "";
+
+  isAdding = false;
+  isEditing = false;
+  public editing: info = {
     id: 0,
     titulo: '',
     subtitulo: '',
@@ -64,85 +68,140 @@ export class ArticleComponent implements OnInit {
   }
 
   obtenerTarjetas(): void {
-    this.serv.getMessage().subscribe((tarjeta:info[]) => {
+    this.serv.getMessage().subscribe((tarjeta: info[]) => {
       this.experiencia = tarjeta.filter(tarj => tarj.tipo == 1)
       this.educacion = tarjeta.filter(tarj => tarj.tipo == 2)
       this.hys = tarjeta.filter(tarj => tarj.tipo == 3)
-      this.proyectos= tarjeta.filter(tarj => tarj.tipo == 4)
+      this.proyectos = tarjeta.filter(tarj => tarj.tipo == 4)
       this.flag = true
     }
     )
   }
 
-  onEliminar(id: number){
-    console.log("onEliminar"+"?id="+id);
-    this.serv.delete(id).subscribe(data =>{
+  onEliminar(id: number) {
+    console.log("onEliminar" + "?id=" + id);
+    this.serv.delete(id).subscribe(data => {
       console.log(data);
       window.location.reload();
     },
-    err =>{
-    console.log(err.error);
-  });
+      err => {
+        console.log(err.error);
+      });
   }
-  onEditar(id: number){
-    console.log("onEditar"+id);
-    this.isEditing=true;
-    this.serv.getById(id).subscribe((tarjeta:info)=>{
-      this.editingTitulo=tarjeta.titulo;
-      this.editingSubtitulo=tarjeta.subtitulo;
-      this.editingTipo=tarjeta.tipo;
-      this.editingImagen=this.imageDefault;
-      this.editingPercent=tarjeta.percent;
-      this.editingFInicio=tarjeta.fInicio;
+  onEditar(id: number) {
+    console.log("onEditar" + id);
+    this.serv.getById(id).subscribe((tarjeta: info) => {
+      this.isEditing = true;
+      this.editingTitulo = tarjeta.titulo;
+      this.editingSubtitulo = tarjeta.subtitulo;
+      this.editingTipo = tarjeta.tipo;
+      this.editingImagen = this.imageDefault;
+      this.editingPercent = tarjeta.percent;
+      this.editingFInicio = tarjeta.fInicio;
       this.editingFFinal = tarjeta.fFin;
-      this.editing=tarjeta;
+      this.editing = tarjeta;
+      switch (this.editingTipo) {
+        case 1: {// experiencia
+          this.campo = "experiencia"
+          this.titulo = "Puesto"
+          this.subtitulo = "Establecimiento"
+          break;
+        }
+        case 2: {//Educacion
+          this.campo = "Educacion"
+          this.titulo = "Titulo"
+          this.subtitulo = "Establecimiento"
+          break
+        }
+        case 3: { //Hard y soft skills
+          this.campo = "Habilidad"
+          this.titulo = "Habilidad"
+          break
+        }
+        case 4: { //proyectos
+            this.campo= "Proyecto"
+            this.titulo= "Nombre del proyecto"
+            this.subtitulo = "Enlace al proyecto"
+            break
+        }
+        default:{
+          break
+        }
+      }
       
-     // console.log("editing: " + this.editingTitulo);
-  
+      // console.log("editing: " + this.editingTitulo);
+
     });
 
-    
+
   }
 
-  onAgregar(tipo:number){
-   // console.log("onEditar"+id);
-    this.isAdding=true;
-    this.editing.tipo=tipo;
-    this.editingTipo=tipo;
+  onAgregar(tipo: number) {
+    // console.log("onEditar"+id);
+    switch (tipo) {
+      case 1: {// experiencia
+        this.campo = "experiencia"
+        this.titulo = "Puesto"
+        this.subtitulo = "Establecimiento"
+        break;
+      }
+      case 2: {//Educacion
+        this.campo = "Educacion"
+        this.titulo = "Titulo"
+        this.subtitulo = "Establecimiento"
+        break
+      }
+      case 3: { //Hard y soft skills
+        this.campo = "Habilidad"
+        break
+      }
+      case 4: { //proyectos
+          this.campo= "Proyecto"
+          this.titulo= "Nombre del proyecto"
+          this.subtitulo = "Enlace al proyecto"
+          break
+      }
+      default:{
+        break
+      }
+    }
+    this.isAdding = true;
+    this.editing.tipo = tipo;
+    this.editingTipo = tipo;
     console.log("onagreg")
-    
+
   }
 
-  onAddingOk(){
-    this.editing.subtitulo=this.editingSubtitulo;
+  onAddingOk() {
+    this.editing.subtitulo = this.editingSubtitulo;
     this.editing.titulo = this.editingTitulo;
-    this.editing.imgsrc=this.imageDefault;
-    this.editing.fInicio=this.editingFInicio;
-    this.editing.fFin=this.editingFFinal;
-    this.editing.percent=this.editingPercent; 
-    this.serv.add(this.editing).subscribe((data:any)=>{
+    this.editing.imgsrc = this.imageDefault;
+    this.editing.fInicio = this.editingFInicio;
+    this.editing.fFin = this.editingFFinal;
+    this.editing.percent = this.editingPercent;
+    this.serv.add(this.editing).subscribe((data: any) => {
       window.location.reload();
     });
   }
 
-  onEditOk(){
-   
-    this.editing.subtitulo=this.editingSubtitulo;
+  onEditOk() {
+
+    this.editing.subtitulo = this.editingSubtitulo;
     this.editing.titulo = this.editingTitulo;
-    this.editing.tipo= this.editingTipo;
-    this.editing.imgsrc=this.editingImagen;
-    this.editing.fInicio=this.editingFInicio;
-    this.editing.fFin=this.editingFFinal;
-    this.editing.percent=this.editingPercent;
+    this.editing.tipo = this.editingTipo;
+    this.editing.imgsrc = this.editingImagen;
+    this.editing.fInicio = this.editingFInicio;
+    this.editing.fFin = this.editingFFinal;
+    this.editing.percent = this.editingPercent;
     console.log("oneditok" + this.editing.id + this.editing.titulo)
-    this.serv.edit(this.editing.id,this.editing).subscribe((tarjeta:info)=>{
-         console.log("editing subscibe: " + this.editing.fFin + this.editing.fInicio);
-        window.location.reload();
+    this.serv.edit(this.editing.id, this.editing).subscribe((tarjeta: info) => {
+      console.log("editing subscibe: " + this.editing.fFin + this.editing.fInicio);
+      window.location.reload();
     });
 
   }
 
-  onCancelar(){
+  onCancelar() {
     //console.log("oncancelar")
     window.location.reload();
   }

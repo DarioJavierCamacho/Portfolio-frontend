@@ -37,20 +37,20 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     FontAwesomeModule,
     FormsModule,
     NgCircleProgressModule.forRoot({
-      // set defaults here
-      backgroundColor: "teal",
-      backgroundPadding: 8,
-      radius: 20,
-      space: -15,
-      maxPercent: 100,
-      unitsColor: "#ffffff",
-      outerStrokeWidth: 7.5,
-      outerStrokeColor: "white",
-      innerStrokeColor: "teal",
-      innerStrokeWidth: 3,
-      titleColor: "#ffffff",
-      subtitleColor: "#ffffff"
-    })
+      "backgroundGradient": true,
+      "backgroundColor": "#ffffff",
+      "backgroundGradientStopColor": "#c0c0c0",
+      "backgroundStrokeWidth": 0,
+      "backgroundPadding": -10,
+      "radius": 60,
+      "space": 3,
+      "maxPercent": 100,
+      "outerStrokeWidth": 3,
+      "outerStrokeColor": "#61A9DC",
+      "innerStrokeColor": "#e21818",
+      "innerStrokeWidth": 2,
+      "subtitleColor": "#444444",
+      "startFromZero": false})
   ],
   providers: [interceptorProvider],
   bootstrap: [AppComponent]
