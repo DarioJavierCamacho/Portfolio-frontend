@@ -118,7 +118,7 @@
                 </div>
                 <div class="container-info">
                   <p>Titulo: {{vari.titulo}}</p>
-                  <p>Proyecto: {{vari.subtitulo}}</p>
+                  <p>Proyecto: {{vari.subtitulo}}"></p>
                   <p>Fecha de inicio: {{vari.fInicio}}</p>
                   <p>Fecha de finalizacion: {{vari.fFin}}</p>
                 </div>
@@ -167,7 +167,7 @@
         <div *ngIf="editingTipo==3">
           <div class="mb-1">
             <label for="editingPercent" class="form-label text-light">porcentaje</label>
-            <input type="number" class="form-control border border-secondary" name="editingPercent" id="editingPercent"
+            <input type="number"  min="0" max="100" class="form-control border border-secondary" name="editingPercent" id="editingPercent"
               [(ngModel)]="editingPercent" required>
           </div>
         </div>
@@ -226,7 +226,7 @@
         <div *ngIf="editingTipo==3">
           <div class="mb-1">
             <label for="cantidad" class="form-label text-light">Porcentaje</label>
-            <input type="number" class="form-control border border-secondary" name="cantidad" id="cantidad"
+            <input type="number" min="0" max="100" class="form-control border border-secondary" name="cantidad" id="cantidad"
               [(ngModel)]="editingPercent" required>
           </div>
         </div>

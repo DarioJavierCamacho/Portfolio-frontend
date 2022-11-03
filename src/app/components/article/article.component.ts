@@ -5,6 +5,7 @@ import { TokenService } from '../../services/token.service';
 import { faInfo, faPen } from '@fortawesome/free-solid-svg-icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-article',
@@ -54,7 +55,8 @@ export class ArticleComponent implements OnInit {
 
   constructor(
     private serv: ApiServicioService,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -81,15 +83,20 @@ export class ArticleComponent implements OnInit {
   onEliminar(id: number) {
    // console.log("onEliminar" + "?id=" + id);
     this.serv.delete(id).subscribe(data => {
-      console.log(data);
+      this.toastr.success('Eliminado Correctamente', 'OK', {
+        timeOut: 3000, positionClass: 'toast-top-center'
+      })
       window.location.reload();
     },
       err => {
-        console.log(err.error);
+        this.toastr.error('Error al eliminar', 'error', {
+          timeOut: 3000, positionClass: 'toast-top-center'
+        });
+        window.location.reload();
       });
   }
   onEditar(id: number) {
-    console.log("onEditar" + id);
+    //console.log("onEditar" + id);
     this.serv.getById(id).subscribe((tarjeta: info) => {
       
       this.editingTitulo = tarjeta.titulo;
@@ -178,13 +185,18 @@ export class ArticleComponent implements OnInit {
     this.editing.subtitulo = this.editingSubtitulo;
     this.editing.titulo = this.editingTitulo;
     this.editing.imgsrc = this.imageDefault;
-    this.editing.fInicio = this.editingFInicio.split('-').reverse().join("-");
+    if(this.editingTipo!=3){
+      this.editing.fInicio = this.editingFInicio.split('-').reverse().join("-");
     this.editing.fFin = this.editingFFinal.split('-').reverse().join("-");
+    }
     this.editing.percent = this.editingPercent;
     this.serv.add(this.editing).subscribe((data: any) => {
-      window.location.reload();
+      this.toastr.success('Agregado Correctamente', 'OK', {
+        timeOut: 3000, positionClass: 'toast-top-center'
+      }) 
+       window.location.reload();
     });
-  }
+}
 
   onEditOk() {
 
@@ -192,18 +204,25 @@ export class ArticleComponent implements OnInit {
     this.editing.titulo = this.editingTitulo;
     this.editing.tipo = this.editingTipo;
     this.editing.imgsrc = this.editingImagen;
-    this.editing.fInicio = this.editingFInicio.split('-').reverse().join("-");
+    if(this.editingTipo!=3){
+      this.editing.fInicio = this.editingFInicio.split('-').reverse().join("-");
     this.editing.fFin = this.editingFFinal.split('-').reverse().join("-");
+    }
     this.editing.percent = this.editingPercent;
     
     
     //console.log("oneditok" + this.editing.id + this.editing.titulo)
     this.serv.edit(this.editing.id, this.editing).subscribe((tarjeta: info) => {
-      console.log("editing subscibe: " + this.editing.fFin + this.editing.fInicio);
+     // console.log("editing subscibe: " + this.editing.fFin + this.editing.fInicio);
+      
+      this.toastr.success('Editado correctamente', 'OK', {
+        timeOut: 3000, positionClass: 'toast-top-center'
+      }) 
       window.location.reload();
-    });
+    })
+    }
 
-  }
+  
 
   onCancelar() {
     //console.log("oncancelar")
