@@ -146,14 +146,14 @@
       <h2 class="text-center mb-4 text-light">Editar {{campo}}</h2>
       <form #f="ngForm" (ngSubmit)="onEditOk()" novalidate>
         <div class="mb-1">
-          <label for="nombre" class="form-label text-light">{{titulo}}</label>
-          <input type="text" class="form-control border border-secondary" name="nombre" id="nombre"
+          <label for="editingTitulo" class="form-label text-light">{{titulo}}</label>
+          <input type="text" class="form-control border border-secondary" name="editingTitulo" id="editingTitulo"
             [(ngModel)]="editingTitulo" required>
         </div>
         <div *ngIf="editingTipo!=3">
           <div class="mb-1">
-            <label for="nombre" class="form-label text-light">{{subtitulo}}</label>
-            <input type="text" class="form-control border border-secondary" name="nombre" id="nombre"
+            <label for="editingSubtitulo" class="form-label text-light">{{subtitulo}}</label>
+            <input type="text" class="form-control border border-secondary" name="editingSubtitulo" id="editingSubtitulo"
               [(ngModel)]="editingSubtitulo" required>
           </div>
         </div>
@@ -166,22 +166,22 @@
         </div>-->
         <div *ngIf="editingTipo==3">
           <div class="mb-1">
-            <label for="nombre" class="form-label text-light">porcentaje</label>
-            <input type="number" class="form-control border border-secondary" name="nombre" id="nombre"
+            <label for="editingPercent" class="form-label text-light">porcentaje</label>
+            <input type="number" class="form-control border border-secondary" name="editingPercent" id="editingPercent"
               [(ngModel)]="editingPercent" required>
           </div>
         </div>
         <div *ngIf="editingTipo!=3">
           <div class="mb-1">
-            <label for="nombre" class="form-label text-light">Fecha de inicio</label>
-            <input type="text" class="form-control border border-secondary" name="nombre" id="nombre"
+            <label for="fechainicio" class="form-label text-light">Fecha de inicio</label>
+            <input type="date" class="form-control border border-secondary" name="fechainicio" id="fechainicio"
               [(ngModel)]="editingFInicio" required>
           </div>
         </div>
         <div *ngIf="editingTipo!=3">
-          <div class="mb-1">
-            <label for="nombre" class="form-label text-light">Fecha de finalizacion</label>
-            <input type="text" class="form-control border border-secondary" name="nombre" id="nombre"
+          <div class="mb-1">           
+            <label for="fechafinal" class="form-label text-light">Fecha de finalizacion</label>
+            <input type="date" class="form-control border border-secondary" name="fechafinal" id="fechafinal"
               [(ngModel)]="editingFFinal" required>
           </div>
         </div>
@@ -204,13 +204,13 @@
       <h2 class="text-center mb-4 text-light">Agregar {{campo}}</h2>
       <form #f="ngForm" (ngSubmit)="onAddingOk()" novalidate>
         <div class="mb-1">
-          <label for="nombre" class="form-label text-light">{{titulo}}</label>
+          <label for="titulo" class="form-label text-light">{{titulo}}</label>
           <input type="text" class="form-control border border-secondary" name="titulo" id="titulo"
             [(ngModel)]="editingTitulo" required>
         </div>
         <div *ngIf="editingTipo!=3">
           <div class="mb-1">
-            <label for="nombre" class="form-label text-light">{{subtitulo}}</label>
+            <label for="subtitulo" class="form-label text-light">{{subtitulo}}</label>
             <input type="text" class="form-control border border-secondary" name="subtitulo" id="subnombre"
               [(ngModel)]="editingSubtitulo" required>
           </div>
@@ -225,22 +225,23 @@
         <!--No definido metodo + api para manejar imagenes, se usa default-->
         <div *ngIf="editingTipo==3">
           <div class="mb-1">
-            <label for="nombre" class="form-label text-light">Porcentaje</label>
+            <label for="cantidad" class="form-label text-light">Porcentaje</label>
             <input type="number" class="form-control border border-secondary" name="cantidad" id="cantidad"
               [(ngModel)]="editingPercent" required>
           </div>
         </div>
         <div *ngIf="editingTipo!=3">
           <div class="mb-1">
-            <label for="nombre" class="form-label text-light">Fecha de inicio</label>
-            <input type="text" class="form-control border border-secondary" name="fecha-inicio" id="fechainicio"
+            <label for="fechainicio" class="form-label text-light">Fecha de inicio</label>
+            
+            <input type="date" class="form-control border border-secondary" name="fecha-inicio" id="fechainicio"
               [(ngModel)]="editingFInicio" required>
           </div>
         </div>
         <div *ngIf="editingTipo!=3">
           <div class="mb-1">
             <label for="nombre" class="form-label text-light">Fecha de finalizacion</label>
-            <input type="text" class="form-control border border-secondary" name="fechafinal" id="fechafinal"
+            <input type="date" class="form-control border border-secondary" name="fechafinal" id="fechafinal"
               [(ngModel)]="editingFFinal" required>
           </div>
         </div>

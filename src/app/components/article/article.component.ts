@@ -31,7 +31,7 @@ export class ArticleComponent implements OnInit {
   editingPercent: number = 0;
   editingFInicio: string = "";
   editingFFinal: string = "";
-  editingTipo = 0;
+  editingTipo = 0;  
 
   campo: string = "";
   titulo: string = "";
@@ -79,7 +79,7 @@ export class ArticleComponent implements OnInit {
   }
 
   onEliminar(id: number) {
-    console.log("onEliminar" + "?id=" + id);
+   // console.log("onEliminar" + "?id=" + id);
     this.serv.delete(id).subscribe(data => {
       console.log(data);
       window.location.reload();
@@ -91,7 +91,7 @@ export class ArticleComponent implements OnInit {
   onEditar(id: number) {
     console.log("onEditar" + id);
     this.serv.getById(id).subscribe((tarjeta: info) => {
-      this.isEditing = true;
+      
       this.editingTitulo = tarjeta.titulo;
       this.editingSubtitulo = tarjeta.subtitulo;
       this.editingTipo = tarjeta.tipo;
@@ -100,6 +100,7 @@ export class ArticleComponent implements OnInit {
       this.editingFInicio = tarjeta.fInicio;
       this.editingFFinal = tarjeta.fFin;
       this.editing = tarjeta;
+      this.isEditing = true;
       switch (this.editingTipo) {
         case 1: {// experiencia
           this.campo = "experiencia"
@@ -153,6 +154,7 @@ export class ArticleComponent implements OnInit {
       }
       case 3: { //Hard y soft skills
         this.campo = "Habilidad"
+        this,this.titulo = "Habilidad"
         break
       }
       case 4: { //proyectos
@@ -168,7 +170,7 @@ export class ArticleComponent implements OnInit {
     this.isAdding = true;
     this.editing.tipo = tipo;
     this.editingTipo = tipo;
-    console.log("onagreg")
+   // console.log("onagreg")
 
   }
 
@@ -176,8 +178,8 @@ export class ArticleComponent implements OnInit {
     this.editing.subtitulo = this.editingSubtitulo;
     this.editing.titulo = this.editingTitulo;
     this.editing.imgsrc = this.imageDefault;
-    this.editing.fInicio = this.editingFInicio;
-    this.editing.fFin = this.editingFFinal;
+    this.editing.fInicio = this.editingFInicio.split('-').reverse().join("-");
+    this.editing.fFin = this.editingFFinal.split('-').reverse().join("-");
     this.editing.percent = this.editingPercent;
     this.serv.add(this.editing).subscribe((data: any) => {
       window.location.reload();
@@ -190,10 +192,12 @@ export class ArticleComponent implements OnInit {
     this.editing.titulo = this.editingTitulo;
     this.editing.tipo = this.editingTipo;
     this.editing.imgsrc = this.editingImagen;
-    this.editing.fInicio = this.editingFInicio;
-    this.editing.fFin = this.editingFFinal;
+    this.editing.fInicio = this.editingFInicio.split('-').reverse().join("-");
+    this.editing.fFin = this.editingFFinal.split('-').reverse().join("-");
     this.editing.percent = this.editingPercent;
-    console.log("oneditok" + this.editing.id + this.editing.titulo)
+    
+    
+    //console.log("oneditok" + this.editing.id + this.editing.titulo)
     this.serv.edit(this.editing.id, this.editing).subscribe((tarjeta: info) => {
       console.log("editing subscibe: " + this.editing.fFin + this.editing.fInicio);
       window.location.reload();

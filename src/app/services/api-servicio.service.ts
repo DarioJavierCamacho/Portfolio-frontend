@@ -13,8 +13,12 @@ import { info } from 'src/interface';
 
 export class ApiServicioService {
 
+  //online api
   private apiUrl= 'https://portfoliodariocamacho.herokuapp.com/tarjeta';
   
+
+  //local api 
+ // private apiUrl= 'http://localhost:8080/tarjeta';
   constructor(private http: HttpClient){
    }
 

@@ -15,12 +15,15 @@ const httpOptions = {
 })
 export class AuthService {
 
+  //online api
   authURL = 'https://portfoliodariocamacho.herokuapp.com/auth/';
 
+  //local api
+  //authURL = 'http://localhost:8080/auth/'
   constructor(private httpClient: HttpClient) { }
 
   public nuevo(nuevoUsuario: NuevoUsuario): Observable<any> {
-    return this.httpClient.post<any>(this.authURL + 'nuevo', nuevoUsuario,httpOptions);
+    return this.httpClient.post<any>(this.authURL + 'nuevo', nuevoUsuario, httpOptions);
   }
 
   public login(loginUsuario: LoginUsuario): Observable<JwtDTO> {

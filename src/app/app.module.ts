@@ -50,7 +50,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
       "innerStrokeColor": "#e21818",
       "innerStrokeWidth": 2,
       "subtitleColor": "#444444",
-      "startFromZero": false})
+      "startFromZero": false}),
   ],
   providers: [interceptorProvider],
   bootstrap: [AppComponent]
