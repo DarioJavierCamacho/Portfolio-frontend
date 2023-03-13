@@ -16,7 +16,7 @@ const httpOptions = {
 export class AuthService {
 
   //online api
-  authURL = 'https://portfoliodariocamacho.herokuapp.com/auth/';
+  authURL = 'https://portfolio-dario-camacho.onrender.com/';
 
   //local api
   //authURL = 'http://localhost:8080/auth/'

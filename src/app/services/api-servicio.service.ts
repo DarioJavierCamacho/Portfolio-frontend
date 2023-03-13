@@ -14,11 +14,11 @@ import { info } from 'src/interface';
 export class ApiServicioService {
 
   //online api
-  private apiUrl= 'https://portfoliodariocamacho.herokuapp.com/tarjeta';
+  private apiUrl= 'https://portfolio-dario-camacho.onrender.com';
   
 
   //local api 
- // private apiUrl= 'http://localhost:8080/tarjeta';
+  //private apiUrl= 'http://localhost:8080/tarjeta';
   constructor(private http: HttpClient){
    }
 

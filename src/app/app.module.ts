@@ -16,6 +16,9 @@ import { interceptorProvider } from './interceptors/interceptor.service';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -51,6 +54,8 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
       "innerStrokeWidth": 2,
       "subtitleColor": "#444444",
       "startFromZero": false}),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage()),
   ],
   providers: [interceptorProvider],
   bootstrap: [AppComponent]
